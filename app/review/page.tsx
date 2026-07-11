@@ -139,14 +139,13 @@ export default function ReviewPage() {
               >
                 {t("common.editClaim", "Edit Claim")}
               </Link>
-              <button className="ml-auto px-8 py-3 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors cursor-not-allowed opacity-50">
-                {t("hero.note", "Proceed to Payment (Coming Soon)")}
-              </button>
+              <Link
+                href="/payment"
+                className="ml-auto px-8 py-3 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors"
+              >
+                Proceed to Payment
+              </Link>
             </div>
-
-            <p className="text-center text-sm text-slate-600 mt-8">
-              {t("hero.description", "Document generation and payment features coming next phase.")}
-            </p>
           </motion.div>
         </Container>
       </main>
