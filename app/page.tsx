@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/layout/Container";
 import { ClientOnly } from "@/components/ClientOnly";
+import { useIntl } from "@/components/providers/IntlProvider";
 import {
   AIContentIllustration,
   DisclosureIllustration,
@@ -14,6 +15,8 @@ import {
 } from "@/components/ui/Illustrations";
 
 export default function Home() {
+  const { t } = useIntl();
+
   return (
     <ClientOnly>
       <Header />
@@ -24,33 +27,29 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="mb-6">
               <span className="text-sm font-semibold text-teal-600 uppercase tracking-wide">
-                Undisclosed AI Content
+                {t("hero.title") === "hero.title" ? "Undisclosed AI Content" : ""}
               </span>
             </div>
 
             <h1 className="mb-6">
-              Take action against<br />
-              <span className="text-teal-600">AI-generated content</span> that
-              wasted your time
+              {t("hero.title")}<br />
+              <span className="text-teal-600">{t("hero.highlight")}</span> {t("hero.subtitle")}
             </h1>
 
             <p className="text-lg text-slate-700 mb-8 max-w-2xl leading-relaxed">
-              You deserve transparency. If you've been exposed to
-              AI-generated content without clear disclosure, we help you
-              generate the professional documents needed to hold companies
-              accountable.
+              {t("hero.description")}
             </p>
 
             <Link
               href="/claim"
               className="inline-flex items-center gap-2 bg-teal-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
             >
-              Start my claim
+              {t("hero.cta")}
               <span className="text-lg">→</span>
             </Link>
 
             <p className="text-sm text-slate-600 mt-6">
-              Takes 5 minutes. No lawyers required.
+              {t("hero.note")}
             </p>
           </div>
         </Section>
@@ -59,8 +58,9 @@ export default function Home() {
         <Section id="what-is-ai-slop" className="bg-gradient-to-br from-white to-mist-50">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="mb-4">What is AI Slop?</h2>
+              <h2 className="mb-4">{t("wizard.step1Title", "What is AI Slop?")}</h2>
               <p className="mb-4">
+                {/* Fallback for missing translation */}
                 AI Slop is AI-generated content that's published without
                 clear disclosure that it was created by AI. It undermines
                 trust, spreads misinformation, and violates consumer rights.
@@ -183,55 +183,54 @@ export default function Home() {
         {/* Pricing */}
         <Section id="pricing" className="bg-gradient-to-br from-teal-50 via-mist-75 to-mist-100">
           <div>
-            <h2 className="mb-4 text-center">Transparent pricing</h2>
+            <h2 className="mb-4 text-center">{t("wizard.step5Title", "Choose your action")}</h2>
             <p className="text-center text-slate-600 mb-12 max-w-xl mx-auto">
-              No subscriptions. No hidden fees. Choose the action that fits
-              your situation.
+              {t("wizard.step5Desc", "No subscriptions. No hidden fees. Choose the action that fits your situation.")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="bg-white p-8 rounded-xl border border-slate-200 hover:border-teal-200 transition-colors">
-                <h3 className="mb-2">Complaint Letter</h3>
+                <h3 className="mb-2">{t("wizard.complaintLetter", "Complaint Letter")}</h3>
                 <p className="text-sm text-slate-600 mb-6">
-                  Direct communication to the company
+                  {t("wizard.complaintLetterDesc", "Direct communication to the company")}
                 </p>
                 <p className="text-3xl font-bold text-teal-600 mb-6">€2</p>
                 <Link
                   href="/claim"
                   className="w-full inline-block text-center bg-slate-100 text-slate-900 px-6 py-2 rounded-lg font-semibold hover:bg-slate-200 transition-colors"
                 >
-                  Choose
+                  {t("common.continue", "Choose")}
                 </Link>
               </div>
 
               <div className="bg-white p-8 rounded-xl border border-slate-200 hover:border-teal-200 transition-colors">
-                <h3 className="mb-2">Regulatory Complaint</h3>
+                <h3 className="mb-2">{t("wizard.regulatoryComplaint", "Regulatory Complaint")}</h3>
                 <p className="text-sm text-slate-600 mb-6">
-                  File with government regulators
+                  {t("wizard.regulatoryComplaintDesc", "File with government regulators")}
                 </p>
                 <p className="text-3xl font-bold text-teal-600 mb-6">€2</p>
                 <Link
                   href="/claim"
                   className="w-full inline-block text-center bg-slate-100 text-slate-900 px-6 py-2 rounded-lg font-semibold hover:bg-slate-200 transition-colors"
                 >
-                  Choose
+                  {t("common.continue", "Choose")}
                 </Link>
               </div>
 
               <div className="bg-white p-8 rounded-xl border-2 border-teal-300">
                 <div className="inline-block bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
-                  Most Legal Impact
+                  {t("wizard.letterBeforeActionImpact", "Maximum legal impact")}
                 </div>
-                <h3 className="mb-2">Letter Before Action</h3>
+                <h3 className="mb-2">{t("wizard.letterBeforeAction", "Letter Before Action")}</h3>
                 <p className="text-sm text-slate-600 mb-6">
-                  Formal notice before legal proceedings
+                  {t("wizard.letterBeforeActionDesc", "Formal notice before legal proceedings")}
                 </p>
                 <p className="text-3xl font-bold text-teal-600 mb-6">€25</p>
                 <Link
                   href="/claim"
                   className="w-full inline-block text-center bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
                 >
-                  Choose
+                  {t("common.continue", "Choose")}
                 </Link>
               </div>
             </div>
