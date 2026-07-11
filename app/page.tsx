@@ -80,17 +80,16 @@ export default function Home() {
         {/* Why Disclosure Matters */}
         <Section id="why-disclosure-matters" className="bg-gradient-to-br from-teal-50 via-mist-50 to-white">
           <div className="max-w-3xl">
-            <h2 className="mb-8">Why disclosure matters</h2>
+            <h2 className="mb-8">{t("hero.title", "Why disclosure matters")}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white rounded-lg p-6 border border-teal-100/50">
                 <div className="w-16 h-16 mb-4 opacity-80">
                   <TrustIllustration />
                 </div>
-                <h4 className="mb-3">Trust</h4>
+                <h4 className="mb-3">{t("wizard.complaintLetter", "Trust")}</h4>
                 <p>
-                  Consumers have the right to know when content is
-                  AI-generated so they can make informed decisions.
+                  {t("hero.description", "Consumers have the right to know when content is AI-generated so they can make informed decisions.")}
                 </p>
               </div>
 
@@ -98,10 +97,9 @@ export default function Home() {
                 <div className="w-16 h-16 mb-4 opacity-80">
                   <DisclosureIllustration />
                 </div>
-                <h4 className="mb-3">Compliance</h4>
+                <h4 className="mb-3">{t("wizard.regulatoryComplaint", "Compliance")}</h4>
                 <p>
-                  Regulators worldwide are enforcing AI disclosure laws.
-                  Non-compliance carries serious penalties.
+                  {t("hero.description", "Regulators worldwide are enforcing AI disclosure laws. Non-compliance carries serious penalties.")}
                 </p>
               </div>
 
@@ -109,10 +107,9 @@ export default function Home() {
                 <div className="w-16 h-16 mb-4 opacity-80">
                   <ActionIllustration />
                 </div>
-                <h4 className="mb-3">Accountability</h4>
+                <h4 className="mb-3">{t("wizard.letterBeforeAction", "Accountability")}</h4>
                 <p>
-                  Companies that violate disclosure rules should face
-                  consequences. You can make a difference.
+                  {t("hero.description", "Companies that violate disclosure rules should face consequences. You can make a difference.")}
                 </p>
               </div>
             </div>
@@ -122,7 +119,7 @@ export default function Home() {
         {/* How It Works */}
         <Section id="how-it-works" className="bg-white">
           <div className="max-w-3xl">
-            <h2 className="mb-8">How it works</h2>
+            <h2 className="mb-8">{t("hero.title", "How it works")}</h2>
 
             <div className="space-y-6">
               <div className="flex gap-4">
@@ -130,10 +127,9 @@ export default function Home() {
                   1
                 </div>
                 <div>
-                  <h4 className="mb-1">Answer a few questions</h4>
+                  <h4 className="mb-1">{t("wizard.step1Title", "Answer a few questions")}</h4>
                   <p className="text-slate-600">
-                    Tell us about the AI content you encountered and the
-                    company responsible.
+                    {t("hero.description", "Tell us about the AI content you encountered and the company responsible.")}
                   </p>
                 </div>
               </div>
@@ -143,10 +139,9 @@ export default function Home() {
                   2
                 </div>
                 <div>
-                  <h4 className="mb-1">Choose your action</h4>
+                  <h4 className="mb-1">{t("wizard.step5Title", "Choose your action")}</h4>
                   <p className="text-slate-600">
-                    Complaint letter, regulatory complaint, or formal legal
-                    notice.
+                    {t("hero.description", "Complaint letter, regulatory complaint, or formal legal notice.")}
                   </p>
                 </div>
               </div>
@@ -156,10 +151,9 @@ export default function Home() {
                   3
                 </div>
                 <div>
-                  <h4 className="mb-1">Get your document</h4>
+                  <h4 className="mb-1">{t("hero.cta", "Get your document")}</h4>
                   <p className="text-slate-600">
-                    We generate a professional, legally-backed document
-                    ready to send.
+                    {t("hero.description", "We generate a professional, legally-backed document ready to send.")}
                   </p>
                 </div>
               </div>
@@ -169,10 +163,9 @@ export default function Home() {
                   4
                 </div>
                 <div>
-                  <h4 className="mb-1">Take action</h4>
+                  <h4 className="mb-1">{t("hero.note", "Take action")}</h4>
                   <p className="text-slate-600">
-                    Download and send your document. We show you where to
-                    send it.
+                    {t("hero.description", "Download and send your document. We show you where to send it.")}
                   </p>
                 </div>
               </div>
@@ -240,68 +233,60 @@ export default function Home() {
         {/* FAQ */}
         <Section id="faq" className="bg-white">
           <div className="max-w-3xl mx-auto">
-            <h2 className="mb-8 text-center">Frequently asked questions</h2>
+            <h2 className="mb-8 text-center">{t("hero.title", "Frequently asked questions")}</h2>
 
             <div className="space-y-6">
               <details className="group">
                 <summary className="flex items-center justify-between cursor-pointer">
                   <h4 className="text-slate-900">
-                    Is this legally binding?
+                    {t("hero.title", "Is this legally binding?")}
                   </h4>
                   <span className="text-teal-600 group-open:rotate-180 transition-transform">
                     +
                   </span>
                 </summary>
                 <p className="text-slate-600 mt-4">
-                  Our documents are professionally written based on current
-                  laws. They carry legal weight and are designed to pressure
-                  companies to respond.
+                  {t("hero.description", "Our documents are professionally written based on current laws. They carry legal weight and are designed to pressure companies to respond.")}
                 </p>
               </details>
 
               <details className="group">
                 <summary className="flex items-center justify-between cursor-pointer">
-                  <h4 className="text-slate-900">Do I need a lawyer?</h4>
+                  <h4 className="text-slate-900">{t("hero.title", "Do I need a lawyer?")}</h4>
                   <span className="text-teal-600 group-open:rotate-180 transition-transform">
                     +
                   </span>
                 </summary>
                 <p className="text-slate-600 mt-4">
-                  No. Our documents are self-contained and ready to send.
-                  We recommend consulting a lawyer only if you pursue legal
-                  action.
-                </p>
-              </details>
-
-              <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer">
-                  <h4 className="text-slate-900">
-                    Will the company have to pay me?
-                  </h4>
-                  <span className="text-teal-600 group-open:rotate-180 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <p className="text-slate-600 mt-4">
-                  Possibly. The outcome depends on the severity of the
-                  violation and local laws. Our documents maximize your
-                  chances.
+                  {t("hero.description", "No. Our documents are self-contained and ready to send. We recommend consulting a lawyer only if you pursue legal action.")}
                 </p>
               </details>
 
               <details className="group">
                 <summary className="flex items-center justify-between cursor-pointer">
                   <h4 className="text-slate-900">
-                    How long does the process take?
+                    {t("hero.title", "Will the company have to pay me?")}
                   </h4>
                   <span className="text-teal-600 group-open:rotate-180 transition-transform">
                     +
                   </span>
                 </summary>
                 <p className="text-slate-600 mt-4">
-                  You can complete the questionnaire and download your
-                  document in under 5 minutes. After that, response times
-                  depend on the company.
+                  {t("hero.description", "Possibly. The outcome depends on the severity of the violation and local laws. Our documents maximize your chances.")}
+                </p>
+              </details>
+
+              <details className="group">
+                <summary className="flex items-center justify-between cursor-pointer">
+                  <h4 className="text-slate-900">
+                    {t("hero.title", "How long does the process take?")}
+                  </h4>
+                  <span className="text-teal-600 group-open:rotate-180 transition-transform">
+                    +
+                  </span>
+                </summary>
+                <p className="text-slate-600 mt-4">
+                  {t("hero.description", "You can complete the questionnaire and download your document in under 5 minutes. After that, response times depend on the company.")}
                 </p>
               </details>
             </div>

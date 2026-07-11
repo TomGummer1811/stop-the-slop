@@ -2,43 +2,46 @@
 
 import { motion } from "framer-motion";
 import { DocumentType } from "@/types";
+import { useIntl } from "@/components/providers/IntlProvider";
 
 interface Step5Props {
   value: DocumentType;
   onChange: (value: DocumentType) => void;
 }
 
-const documents: {
-  value: DocumentType;
-  label: string;
-  description: string;
-  price: string;
-  impact: string;
-}[] = [
-  {
-    value: "complaint",
-    label: "Complaint Letter",
-    description: "Direct communication to the company",
-    price: "€2",
-    impact: "Opens dialogue with the company",
-  },
-  {
-    value: "regulatory",
-    label: "Regulatory Complaint",
-    description: "File with government regulators",
-    price: "€2",
-    impact: "Alerts authorities to violations",
-  },
-  {
-    value: "letter-before-action",
-    label: "Letter Before Action",
-    description: "Formal notice before legal proceedings",
-    price: "€25",
-    impact: "Maximum legal impact",
-  },
-];
-
 export function Step5DocumentType({ value, onChange }: Step5Props) {
+  const { t } = useIntl();
+
+  const documents: {
+    value: DocumentType;
+    label: string;
+    description: string;
+    price: string;
+    impact: string;
+  }[] = [
+    {
+      value: "complaint",
+      label: t("wizard.complaintLetter", "Complaint Letter"),
+      description: t("wizard.complaintLetterDesc", "Direct communication to the company"),
+      price: "€2",
+      impact: t("wizard.complaintLetterImpact", "Opens dialogue with the company"),
+    },
+    {
+      value: "regulatory",
+      label: t("wizard.regulatoryComplaint", "Regulatory Complaint"),
+      description: t("wizard.regulatoryComplaintDesc", "File with government regulators"),
+      price: "€2",
+      impact: t("wizard.regulatoryComplaintImpact", "Alerts authorities to violations"),
+    },
+    {
+      value: "letter-before-action",
+      label: t("wizard.letterBeforeAction", "Letter Before Action"),
+      description: t("wizard.letterBeforeActionDesc", "Formal notice before legal proceedings"),
+      price: "€25",
+      impact: t("wizard.letterBeforeActionImpact", "Maximum legal impact"),
+    },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -46,9 +49,9 @@ export function Step5DocumentType({ value, onChange }: Step5Props) {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <h2 className="mb-4">Choose your action</h2>
+      <h2 className="mb-4">{t("wizard.step5Title")}</h2>
       <p className="text-slate-600 mb-8">
-        Which document would best suit your situation?
+        {t("wizard.step5Desc")}
       </p>
 
       <div className="space-y-4">

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIntl } from "@/components/providers/IntlProvider";
 
 interface Step4Props {
   companyName: string;
@@ -23,6 +24,8 @@ export function Step4Company({
   errors,
   onChange,
 }: Step4Props) {
+  const { t } = useIntl();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -30,9 +33,9 @@ export function Step4Company({
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <h2 className="mb-4">Tell us about the company</h2>
+      <h2 className="mb-4">{t("wizard.step4Title")}</h2>
       <p className="text-slate-600 mb-8">
-        Which company published this AI-generated content?
+        {t("wizard.step4Desc")}
       </p>
 
       <div className="space-y-5">

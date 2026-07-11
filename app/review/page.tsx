@@ -5,12 +5,14 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
 import { ClientOnly } from "@/components/ClientOnly";
+import { useIntl } from "@/components/providers/IntlProvider";
 import { loadClaim } from "@/lib/claimStorage";
 import { ClaimFormData } from "@/types";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function ReviewPage() {
+  const { t } = useIntl();
   const [claim, setClaim] = useState<ClaimFormData | null>(null);
 
   useEffect(() => {
@@ -30,9 +32,9 @@ export default function ReviewPage() {
   }
 
   const documentLabels = {
-    complaint: "Complaint Letter",
-    regulatory: "Regulatory Complaint",
-    "letter-before-action": "Letter Before Action",
+    complaint: t("wizard.complaintLetter", "Complaint Letter"),
+    regulatory: t("wizard.regulatoryComplaint", "Regulatory Complaint"),
+    "letter-before-action": t("wizard.letterBeforeAction", "Letter Before Action"),
   };
 
   return (
@@ -46,10 +48,9 @@ export default function ReviewPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <h1 className="mb-4">Review your claim</h1>
+            <h1 className="mb-4">{t("common.reviewClaim", "Review your claim")}</h1>
             <p className="text-slate-600 mb-12">
-              Here's what we'll use to generate your document. You can go back
-              to edit anything.
+              {t("hero.description", "Here's what we'll use to generate your document. You can go back to edit anything.")}
             </p>
 
             {/* Document Preview */}
@@ -136,15 +137,15 @@ export default function ReviewPage() {
                 href="/claim"
                 className="px-6 py-3 rounded-lg border-2 border-slate-200 text-slate-900 font-semibold hover:border-slate-300 transition-colors"
               >
-                Edit Claim
+                {t("common.editClaim", "Edit Claim")}
               </Link>
               <button className="ml-auto px-8 py-3 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-700 transition-colors cursor-not-allowed opacity-50">
-                Proceed to Payment (Coming Soon)
+                {t("hero.note", "Proceed to Payment (Coming Soon)")}
               </button>
             </div>
 
             <p className="text-center text-sm text-slate-600 mt-8">
-              Document generation and payment features coming next phase.
+              {t("hero.description", "Document generation and payment features coming next phase.")}
             </p>
           </motion.div>
         </Container>

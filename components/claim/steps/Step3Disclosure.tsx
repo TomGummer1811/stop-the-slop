@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { DisclosureLevel } from "@/types";
+import { useIntl } from "@/components/providers/IntlProvider";
 
 interface Step3Props {
   hadDisclosure: DisclosureLevel;
@@ -16,6 +17,8 @@ export function Step3Disclosure({
   onDisclosureChange,
   onDetailsChange,
 }: Step3Props) {
+  const { t } = useIntl();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -23,23 +26,23 @@ export function Step3Disclosure({
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <h2 className="mb-4">Was the AI use disclosed?</h2>
+      <h2 className="mb-4">{t("wizard.step3Title")}</h2>
       <p className="text-slate-600 mb-8">
-        Did the company clearly disclose that the content was AI-generated?
+        {t("wizard.step3Desc")}
       </p>
 
       <div className="space-y-3 mb-8">
         {[
-          { value: "yes", label: "Yes", description: "It was clearly disclosed" },
+          { value: "yes", label: t("wizard.disclosureYes", "Yes"), description: t("wizard.disclosureYesDesc", "It was clearly disclosed") },
           {
             value: "no",
-            label: "No",
-            description: "There was no disclosure at all",
+            label: t("wizard.disclosureNo", "No"),
+            description: t("wizard.disclosureNoDesc", "There was no disclosure at all"),
           },
           {
             value: "unsure",
-            label: "Unsure",
-            description: "Not sure if it was disclosed",
+            label: t("wizard.disclosureUnsure", "Unsure"),
+            description: t("wizard.disclosureUnsureDesc", "Not sure if it was disclosed"),
           },
         ].map((option) => (
           <motion.button

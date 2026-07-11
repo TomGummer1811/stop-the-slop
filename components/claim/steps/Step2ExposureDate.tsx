@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useIntl } from "@/components/providers/IntlProvider";
 
 interface Step2Props {
   value: Date;
@@ -9,6 +10,7 @@ interface Step2Props {
 }
 
 export function Step2ExposureDate({ value, onChange, error }: Step2Props) {
+  const { t } = useIntl();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(new Date(e.target.value));
   };
@@ -22,9 +24,9 @@ export function Step2ExposureDate({ value, onChange, error }: Step2Props) {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <h2 className="mb-4">When were you exposed to this content?</h2>
+      <h2 className="mb-4">{t("wizard.step2Title")}</h2>
       <p className="text-slate-600 mb-8">
-        Approximately when did you first encounter this AI-generated content?
+        {t("wizard.step2Desc")}
       </p>
 
       <div className="max-w-sm">

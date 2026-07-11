@@ -2,22 +2,25 @@
 
 import { motion } from "framer-motion";
 import { ContentType } from "@/types";
+import { useIntl } from "@/components/providers/IntlProvider";
 
 interface Step1Props {
   value: ContentType;
   onChange: (value: ContentType) => void;
 }
 
-const options: { value: ContentType; label: string; description: string }[] = [
-  { value: "article", label: "Article", description: "Blog post or news article" },
-  { value: "image", label: "Image", description: "Photo or graphic" },
-  { value: "video", label: "Video", description: "Video content" },
-  { value: "advertisement", label: "Advertisement", description: "Ad or sponsored content" },
-  { value: "chatbot", label: "Chatbot", description: "AI chatbot response" },
-  { value: "other", label: "Other", description: "Something else" },
-];
-
 export function Step1ContentType({ value, onChange }: Step1Props) {
+  const { t } = useIntl();
+
+  const options: { value: ContentType; label: string; description: string }[] = [
+    { value: "article", label: t("wizard.contentArticle", "Article"), description: t("wizard.contentArticleDesc", "Blog post or news article") },
+    { value: "image", label: t("wizard.contentImage", "Image"), description: t("wizard.contentImageDesc", "Photo or graphic") },
+    { value: "video", label: t("wizard.contentVideo", "Video"), description: t("wizard.contentVideoDesc", "Video content") },
+    { value: "advertisement", label: t("wizard.contentAd", "Advertisement"), description: t("wizard.contentAdDesc", "Ad or sponsored content") },
+    { value: "chatbot", label: t("wizard.contentChatbot", "Chatbot"), description: t("wizard.contentChatbotDesc", "AI chatbot response") },
+    { value: "other", label: t("wizard.contentOther", "Other"), description: t("wizard.contentOtherDesc", "Something else") },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -25,9 +28,9 @@ export function Step1ContentType({ value, onChange }: Step1Props) {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <h2 className="mb-4">What type of AI content?</h2>
+      <h2 className="mb-4">{t("wizard.step1Title")}</h2>
       <p className="text-slate-600 mb-8">
-        Tell us what kind of content you encountered.
+        {t("wizard.step1Desc")}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
