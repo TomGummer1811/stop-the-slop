@@ -10,12 +10,14 @@ import { Step2ExposureDate } from "@/components/claim/steps/Step2ExposureDate";
 import { Step3Disclosure } from "@/components/claim/steps/Step3Disclosure";
 import { Step4Company } from "@/components/claim/steps/Step4Company";
 import { Step5DocumentType } from "@/components/claim/steps/Step5DocumentType";
+import { QualificationCheck } from "@/components/claim/QualificationCheck";
 import { useClaimForm } from "@/hooks/useClaimForm";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function ClaimPage() {
-  const { claim, step, updateClaim, nextStep, prevStep } = useClaimForm();
+  const { claim, step, isQualified, updateClaim, nextStep, prevStep, qualify } =
+    useClaimForm();
 
   if (!claim) {
     return (
@@ -24,6 +26,22 @@ export default function ClaimPage() {
         <main className="flex-1 flex items-center justify-center">
           <p>Loading...</p>
         </main>
+        <Footer />
+      </>
+    );
+  }
+
+  if (!isQualified) {
+    return (
+      <>
+        <Header />
+
+        <main className="flex-1 bg-gradient-to-br from-white via-teal-50 to-mist-100">
+          <Container className="py-12 max-w-2xl">
+            <QualificationCheck onQualify={qualify} />
+          </Container>
+        </main>
+
         <Footer />
       </>
     );
