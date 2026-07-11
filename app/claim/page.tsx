@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
+import { ClientOnly } from "@/components/ClientOnly";
 import { Stepper } from "@/components/claim/Stepper";
 import { Step1ContentType } from "@/components/claim/steps/Step1ContentType";
 import { Step2ExposureDate } from "@/components/claim/steps/Step2ExposureDate";
@@ -85,7 +86,7 @@ export default function ClaimPage() {
   };
 
   return (
-    <>
+    <ClientOnly>
       <Header />
 
       <main className="flex-1 bg-gradient-to-br from-white via-teal-50 to-mist-100">
@@ -181,6 +182,6 @@ export default function ClaimPage() {
       </main>
 
       <Footer />
-    </>
+    </ClientOnly>
   );
 }

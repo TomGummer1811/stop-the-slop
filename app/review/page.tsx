@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
+import { ClientOnly } from "@/components/ClientOnly";
 import { loadClaim } from "@/lib/claimStorage";
 import { ClaimFormData } from "@/types";
 import Link from "next/link";
@@ -35,7 +36,7 @@ export default function ReviewPage() {
   };
 
   return (
-    <>
+    <ClientOnly>
       <Header />
 
       <main className="flex-1 bg-gradient-to-br from-white via-teal-50 to-mist-100">
@@ -150,6 +151,6 @@ export default function ReviewPage() {
       </main>
 
       <Footer />
-    </>
+    </ClientOnly>
   );
 }

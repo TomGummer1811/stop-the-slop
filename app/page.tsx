@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/layout/Container";
+import { ClientOnly } from "@/components/ClientOnly";
 import {
   AIContentIllustration,
   DisclosureIllustration,
@@ -12,7 +15,7 @@ import {
 
 export default function Home() {
   return (
-    <>
+    <ClientOnly>
       <Header />
 
       <main className="flex-1">
@@ -308,6 +311,6 @@ export default function Home() {
       </main>
 
       <Footer />
-    </>
+    </ClientOnly>
   );
 }
