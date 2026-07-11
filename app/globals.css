@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-poppins);
+  --font-serif: var(--font-space-grotesk);
+}
+
+@layer base {
+  :root {
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+
+    --teal-50: #f0fdfc;
+    --teal-100: #ccf5f3;
+    --teal-200: #99ebe7;
+    --teal-300: #66e1db;
+    --teal-400: #33d7cf;
+    --teal-500: #14b8a6;
+    --teal-600: #0d9488;
+    --teal-700: #0f766e;
+    --teal-800: #134e4a;
+    --teal-900: #0d3331;
+
+    --mist-50: #f0fcfb;
+    --mist-75: #e0f9f7;
+    --mist-100: #d4f7f5;
+    --mist-200: #a8efeb;
+    --mist-300: #7ce7e1;
+    --mist-400: #50dfd7;
+    --mist-500: #2dd7cd;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    background: white;
+    color: var(--slate-900);
+    font-family: var(--font-poppins);
+    font-size: 16px;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-family: var(--font-space-grotesk);
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--slate-900);
+  }
+
+  h2 {
+    font-family: var(--font-space-grotesk);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--slate-900);
+  }
+
+  h3 {
+    font-family: var(--font-space-grotesk);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--slate-900);
+  }
+
+  h4 {
+    font-family: var(--font-poppins);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--slate-900);
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--slate-700);
+  }
+
+  a {
+    color: var(--teal-600);
+    transition: color 200ms ease;
+  }
+
+  a:hover {
+    color: var(--teal-700);
+  }
+
+  button {
+    transition: all 200ms ease;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (max-width: 640px) {
+    .section-spacing {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+}
