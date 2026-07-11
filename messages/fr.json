@@ -1,12 +1,12 @@
 {
   "common": {
     "appName": "Stop the Slop",
-    "startClaim": "Start my claim",
-    "signIn": "Sign in",
-    "back": "Back",
-    "continue": "Continue",
-    "reviewClaim": "Review Claim",
-    "editClaim": "Edit Claim"
+    "startClaim": "Démarrer ma réclamation",
+    "signIn": "Se connecter",
+    "back": "Retour",
+    "continue": "Continuer",
+    "reviewClaim": "Examiner la réclamation",
+    "editClaim": "Modifier la réclamation"
   },
   "header": {
     "stopTheSlop": "Stop the Slop",
